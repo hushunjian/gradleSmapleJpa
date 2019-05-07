@@ -1,0 +1,62 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+        mapstructVersion = "1.2.0.CR1"
+        lombokVersion = "1.16.14"
+        swaggerVersion = "2.6.1"
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id 'java'
+    // mapstruct
+    id 'net.ltgt.apt' version '0.9'
+}
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'idea'
+apply plugin: 'net.ltgt.apt'
+
+group = 'com.hushunjian'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    
+    // swagger依赖
+    compile("io.springfox:springfox-swagger2:${swaggerVersion}")
+    compile("io.springfox:springfox-swagger-ui:${swaggerVersion}")
+
+    // mapstruct依赖
+    compile("org.mapstruct:mapstruct-jdk8:${mapstructVersion}")
+    annotationProcessor("org.mapstruct:mapstruct-processor:${mapstructVersion}")
+
+
+    // lombok依赖
+    compile("org.projectlombok:lombok:${lombokVersion}")
+    annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+
+    // jpa依赖
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("mysql:mysql-connector-java")
+
+
+    // springboot-web依赖
+    compile('org.springframework.boot:spring-boot-starter-web')
+
+    // 基础springboot依赖
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+

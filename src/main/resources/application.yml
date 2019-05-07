@@ -1,0 +1,15 @@
+server:
+  port: 8000
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/macgradle?serverTimezne=UTC&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 950420HSJ
+
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
