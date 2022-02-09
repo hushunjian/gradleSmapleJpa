@@ -58,5 +58,8 @@ dependencies {
     // 基础springboot依赖
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // lang3
+    implementation 'org.apache.commons:commons-lang3:3.11'
 }
 
